@@ -3,13 +3,18 @@
 ![status: research-only](https://img.shields.io/badge/status-research--only-blue)
 ![no live trading](https://img.shields.io/badge/live%20trading-disabled-red)
 ![python](https://img.shields.io/badge/python-3.12-blue)
-![tests](https://img.shields.io/badge/tests-67%20passing-brightgreen)
+![tests](https://img.shields.io/badge/tests-67%20of%20600%2B%20(extracted%20core)-brightgreen)
 ![mypy](https://img.shields.io/badge/mypy-strict-brightgreen)
 
 A deterministic, event-driven crypto backtesting engine with a separate risk engine
 that gates and sizes every entry. This repository is the **pure-logic core** of a larger
 private system, extracted as a public showcase: feature math, the strategy, the backtest
 loop, and the risk layer — plus the tests that prove the parts behave.
+
+> **On the test count:** the full private system has **600+ tests**. This public repo ships
+> the **67** that cover the extracted modules above — the same number you'll see if you run
+> `pytest` here. The larger figure refers to the complete system (execution, data layer,
+> paper-trading loop), which is not published.
 
 It does **not** trade. There is no exchange client, no API keys, no order routing in this
 repository. See [Safety by design](#safety-by-design).
@@ -161,7 +166,8 @@ To reproduce realistic numbers, fetch public OHLCV (e.g. via `ccxt`) and map it 
 
 ## Tests
 
-**67 tests**, all passing, covering the four published packages:
+**67 tests** (of 600+ in the full private system), all passing, covering the four published
+packages:
 
 - `test_feature_*` — indicator math (EMA/ATR/returns/vol/drawdown), no-look-ahead, the
   `MIN_BARS` history guard
